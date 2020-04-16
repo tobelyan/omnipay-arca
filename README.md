@@ -60,6 +60,8 @@ Or you can simply run
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
 repository.
 
+Developed BY [DINEURON](https://dineuron.com)
+
 ## Support
 
 If you are having general issues with Omnipay, we suggest posting on
