@@ -1,0 +1,35 @@
+{
+  "name": "tobelyan/omnipay-arca",
+  "type": "library",
+  "description": "ARCA gateway for Omnipay payment processing library",
+  "keywords": [
+    "gateway",
+    "merchant",
+    "omnipay",
+    "pay",
+    "payment",
+    "arca",
+    "ashib",
+    "acba",
+    "purchase"
+  ],
+  "homepage": "https://github.com/tobelyan/omnipay-arca",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rafayel Tobelyan",
+      "email": "tobelyan@dineuron.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\Arca\\": "src/"
+    }
+  },
+  "require": {
+    "omnipay/common": "^3"
+  },
+  "require-dev": {
+    "omnipay/tests": "^3"
+  }
+}
