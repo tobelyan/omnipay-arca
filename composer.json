@@ -31,6 +31,5 @@
   },
   "require-dev": {
     "omnipay/tests": "^3"
-  },
-  "minimum-stability": "dev"
+  }
 }
