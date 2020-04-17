@@ -41,10 +41,9 @@ Or you can simply run
     $gateway = Omnipay::create('Arca');
     $gateway->setUserName(env('username'));
     $gateway->setPassword(env('password'));
-    $gateway->setLanguage('lang'); // Language
-    $gateway->setReturnUrl('url'); // request return URL
+    $gateway->setParameter('language',\App::getLocale()); // Language
     $gateway->setAmount(10); // Amount to charge
-    $gateway->setTransactionId(XXXX); // Transaction ID from your system
+    $gateway->setParameter('TransactionId',XXXX); // Transaction ID from your system
 
 ```
 
