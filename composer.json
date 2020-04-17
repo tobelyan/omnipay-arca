@@ -1,7 +1,7 @@
 {
   "name": "tobelyan/omnipay-arca",
   "type": "library",
-  "description": "ARCA gateway for Omnipay payment processing library",
+  "description": "ARCA Payment Gateways for ACBA,ASHIB,INECO and other arca.am partner banks [Laravel]",
   "keywords": [
     "gateway",
     "merchant",

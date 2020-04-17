@@ -56,16 +56,21 @@ Or you can simply run
     $purchase->redirect();
 
 ```
-4. Here we should call callback url to check status, e.g
+4. Here we should get callback url to check status, e.g
 
+```php
 public function checkStatus(Request $request) {
     $orderId = $request->orderId;
-    then make a request
-    init the $gateway here as we did before;
- $purchase = $gateway->getOrderStatus(['transactionId' => $request->orderId])->send();
- so then your logic
+    //then make a request
+    $gateway = Omnipay::create('Arca');
+    $gateway->setUserName(env('username'));
+    $gateway->setPassword(env('password'));
+    $purchase = $gateway->getOrderStatus(['transactionId' => $request->orderId])->send();
+    if($purchase->isSuccessful()) {
+        //your logic
+    }
 }
-
+```
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
 repository.
 
