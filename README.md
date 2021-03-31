@@ -3,7 +3,7 @@
 **arca driver for the Omnipay Laravel payment processing library**
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.5+. This package implements ARCA support for Omnipay.
+processing library for PHP 5.5+. This package implements ARCA support for Omnipay. With CardBinding Support 
 
 ## Installation
 
@@ -70,6 +70,39 @@ public function checkStatus(Request $request) {
         //your logic
     }
 }
+```
+
+Card Binding
+
+Add these methods to your logic
+
+```php
+    $gateway->setParameter('clientId', auth()->user()->id);
+    $gateway->setParameter('bindingPayment',true);
+    $gateway->setParameter('bindingId',$card->bindingId);
+
+    //Send Binding info using these methods
+    $gateway->setParameter('mdOrder',$orderId);
+    $purchase = $gateway->makeBindingPayment()->send();
+    //then send Redirection
+    if ($purchase->isRedirect()) {
+        $purchase->redirect();
+    }
+```
+
+Data you will get after payment
+
+```php
+$purchaseData = [
+    'user_id'=>auth()->user()->id,
+    'expiration'=>$purchase->getData()['cardAuthInfo']['expiration'],
+    'cardholderName'=>$purchase->getData()['cardAuthInfo']['cardholderName'],
+    'approvalCode'=>$purchase->getData()['cardAuthInfo']['approvalCode'],
+    'pan'=>$purchase->getData()['cardAuthInfo']['pan'],
+    'clientId'=>$purchase->getData()['bindingInfo']['clientId'],
+    'bindingId'=>$purchase->getData()['bindingInfo']['bindingId'],
+    'secure_hash'=>md5($purchase->getData()['cardAuthInfo']['pan'])
+];
 ```
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
 repository.
