@@ -77,7 +77,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
      */
     public function isRedirect()
     {
-        return isset($this->data['formUrl']) ? true : false;
+        return isset($this->data['formUrl']) OR isset($this->data['redirect']) ? true : false;
     }
 
     /**
@@ -87,7 +87,7 @@ class Response extends AbstractResponse implements RedirectResponseInterface
      */
     public function getRedirectUrl()
     {
-        return $this->data['formUrl'];
+        return isset($this->data['formUrl']) ? $this->data['formUrl'] :  $this->data['redirect'];
     }
 
     /**

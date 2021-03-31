@@ -117,6 +117,26 @@ abstract class AbstractRequest extends CommonAbstractRequest
     }
 
     /**
+     * Set the request bindingId.
+     *
+     * @param string $value
+     *
+     * @return $this
+     */
+
+    public function setBindingId($value) {
+        return $this->setParameter('bindingId', $value);
+    }
+
+        /**
+     * Get the request bindingId.
+     *
+     * @return $this
+     */
+    public function getBindingId(){
+        return $this->getParameter('bindingId');
+    }
+    /**
      * @return mixed
      */
     public function getJsonParams()

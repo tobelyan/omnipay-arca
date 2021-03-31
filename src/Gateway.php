@@ -101,6 +101,28 @@ class Gateway extends AbstractGateway
         return $this->createRequest('\Omnipay\Arca\Message\RegisterPreAuthRequest', $parameters);
     }
 
+        /**
+     * Create activateCardBinding Request.
+     *
+     * @param  array $parameters
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
+    public function activateCardBinding(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Arca\Message\ActivateCardBindingRequest', $parameters);
+    }
+
+    /**
+     * Create makeBindingPayment Request.
+     *
+     * @param  array $parameters
+     * @return \Omnipay\Common\Message\AbstractRequest
+     */
+    public function makeBindingPayment(array $parameters = array())
+    {
+        return $this->createRequest('\Omnipay\Arca\Message\MakeBindingPaymentRequest', $parameters);
+    }
+
     /**
      * Create GetOrderStatus Request.
      *
