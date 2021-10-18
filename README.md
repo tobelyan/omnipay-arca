@@ -42,7 +42,7 @@ Or you can simply run
     $gateway->setUserName(env('username'));
     $gateway->setPassword(env('password'));
     $gateway->setParameter('language',\App::getLocale()); // Language
-    $gateway->setAmount(10); // Amount to charge
+    $gateway->setParameter('amount',10); // Amount to charge
     $gateway->setParameter('TransactionId',XXXX); // Transaction ID from your system
 
 ```
